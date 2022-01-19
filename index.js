@@ -2,6 +2,7 @@ const container = document.querySelector('div.grid-container');
 const sizeControl = document.querySelector('#grid-size-control');
 const clearButton = document.querySelector('button.clear-grid');
 const colorControl = document.querySelector('#color-control');
+const rainbowModeControl = document.querySelector('#rainbow-control');
 
 sizeControl.addEventListener('input', createGrid);
 
@@ -12,6 +13,10 @@ function clearGrid() {
     divsFilled.forEach((x) => {
         x.style.backgroundColor = 'white';
     });
+}
+
+function randomColor() {
+    return '#' + Math.floor(Math.random() * 16777215).toString(16);
 }
 
 function createGrid() {
@@ -25,7 +30,10 @@ function createGrid() {
         const div = document.createElement('div');
         div.classList.add('cell');
         div.addEventListener('mouseenter', (e) => {
-            const color = colorControl.value;
+            let color = colorControl.value;
+            if (rainbowModeControl.checked) {
+                color = randomColor();
+            }
             e.target.style.backgroundColor = color;
         });
         container.append(div);

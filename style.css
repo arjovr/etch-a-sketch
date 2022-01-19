@@ -32,3 +32,8 @@ body {
     border-radius: 16px;
     border: aqua 2px solid;
 }
+
+.control {
+    display: flex;
+    justify-content: space-around;
+}
