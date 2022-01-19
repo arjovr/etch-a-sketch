@@ -31,6 +31,7 @@ body {
     background-color: aqua;
     border-radius: 16px;
     border: aqua 2px solid;
+    height: 30px;
 }
 
 .control {
